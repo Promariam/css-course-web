@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Mastrey Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+    html {
+        scroll-behavior: smooth;
+    }
+* {
+    box-sizing: border-box;
+     font-family: "Poppins", sans-serif;
+}
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(8px); /*new*/
+    z-index: 100;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: space-between; /*new*/
+    align-items: center;
+}
+header h3 {
+    color: #0A85D1;
+}
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    position: relative;
+    padding-bottom: 5px;
+}
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #0A85D1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+}
+nav a:hover::after {
+    transform: scaleX(1);
+}
+.main-container {
+    background-image: url('https://images.unsplash.com/photo-1498050108023-c5249f4df085');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 850px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 8%;
+    
+}
+.starter {
+    background-color: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 650px;
+}
+.starter h1 {
+    font-size: 48px; 
+    font-weight: 700; 
+    line-height: 1.2;
+}
+section {
+    color: #0A85D1;
+}
+p {
+    color: #728296;
+}
+.btn {
+    background-color: #0A85D1;
+    width: auto;
+    padding: 15px;
+    width: fit-content; /*new*/
+    border-radius: 30px;
+    color: white;
+    display: inline-block;
+    border: 2px solid transparent;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.btn:hover {
+    color: #0A85D1;
+    background-color: transparent;
+    border: 2px solid #0A85D1;
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+.topics {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 65px;
+}
+.topics h2 {
+    font-size: 35px; 
+    font-weight: 700; 
+    line-height: 1.2;
+}
+.grids {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+}
+.mini-grid {
+    background-color: white;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.mini-grid:hover {
+    transform: translateY(-6px);
+    background-color: transparent;
+}
+.emoji {
+    background-color: #D3E9F6;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.why-learn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 200px auto 15px auto;
+}
+.photo {
+    flex: 1;
+    max-width: 400px;
+}
+.photo img {
+    width: 100%;         
+    height: auto;        
+    border-radius: 15px;  
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+.content {
+    flex: 1;
+}
+.content h2 {
+    font-size: 40px;
+}
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.list li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+.list li::before {
+    content:"✓";
+    position: absolute;
+    color: #0a85d1;
+    left: 0;
+    top: 0;
+    font-weight: bold;
+    font-size: 18px;
+}
+.projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+    width: 100%;
+}
+.projects h2 {
+    font-size: 40px;
+}
+.card-content {
+    position: absolute;
+    text-align: left;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0) 100%);
+    bottom: 0;   
+    left: 0;    
+    right: 0;
+}
+.card-content h3, .card-content p {
+    color: white;
+    margin: 15px;
+}
+.photoss {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /*new*/
+    max-width: 1200px;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    justify-content: center;
+} 
+.imgg {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease; /*new*/
+}
+.img-box {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 15px;
+    height: 300px;
+    object-fit: contain;
+}
+.img-box:hover .imgg {
+    transform: scale(1.08); /*new*/
+}
+.learning-path {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+    width: 100%;
+}
+.learning-path h2 {
+    font-size: 40px;
+}
+.levels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 1200px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+.each-level {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1 1 320px;
+}
+.p-specific {
+    font-size: 45px;
+    font-weight: 700;
+    color: #0a85d1;
+}
+.intermediate {
+    border: 2px solid #0a85d1;
+}
+.each-level p:not(.p-specific) {
+    text-align: center;
+    color: black;
+}
+.p1 {
+    font-size: 20px;
+    font-weight: 700;
+}
+.list2 {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;   
+    gap: 15px;
+}
+.contact {
+    background-color: #111827;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:100px;
+    padding-bottom: 100px;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    gap: 15px;
+    max-width: 600px;
+    align-items: center;
+}
+form input, form textarea {
+    padding: 14px 18px;
+    width: 100%;
+    border-radius: 12px;
+    outline: none;
+    font-size: 17px;
+    border : 3px solid transparent;
+}
+form input:focus, form textarea:focus {
+    border : 3px solid #0a85d1;
+}
+form .btn {
+    width: 100%;
+    cursor: pointer;
+    display: block;
+}
+footer {
+    display: flex;
+    background-color: #020617;
+    height: 75px;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+/*floating btn*/
+.top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #0a85d1;
+    color: #fff;
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    z-index: 1000;
+    animation: pulse 2s infinite ease-in-out;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.15);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (min-width: 700px) and (max-width: 1050px) {
+    .each-level:last-child {
+        max-width: 100%;
+    }
+}
+@media (max-width: 700px) {
+    .main-container {
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+    }
+    .starter {
+        text-align: center;
+        margin: 15px;
+    }
+    .btn {
+        margin: 0 auto;
+    }
+    .topics {
+        text-align: center;
+    }
+    .mini-grid {
+        text-align: left;
+    }
+    .why-learn {
+        flex-direction: column;
+        padding: 0 20px;
+    }
+    .photo {
+        width: 100%;
+        max-width: 100%;
+    }
+    .contact {
+        padding: 20px;
+    }
+}
+</style>
+</head>
+<body>
+    <header>
+        <h3>CSSPro</h3>
+        <nav>
+            <a href="#Topics">Topics</a>
+            <a href="#About">About</a>
+            <a href="#Projects">Projects</a>
+            <a href="#Plans">Plans</a>
+            <a href="#Contact">Contact</a>
+        </nav>
+    </header>
+    <div class="main-container">
+        <div class="starter">
+            <h1>Master <section>Professional CSS</section></h1>
+            <p>Learn layouts, responsive design, animations, clean structure, accessibility, and modern CSS techniques.</p>
+            <button class="btn">Start Learning</button>
+        </div>
+    </div>
+    <div id="Topics" class="topics">
+        <h2>CSS Topics</h2>
+        <p>A professional learning path from basics to advanced UI building.</p>
+        <div class="grids">
+            <div class="mini-grid">
+                <div class="emoji">🎨</div>
+                <h3>Styling Basics</h3>
+                <p>Colors, units, typography, selectors, backgrounds, borders, and box model.</p>
+            </div>
+            <div class="mini-grid">
+                <div class="emoji">📦</div>
+                <h3>Layouts</h3>
+                <p>Flexbox, Grid, positioning, z-index, spacing, and responsive containers.</p>
+            </div>
+            <div class="mini-grid">
+                <div class="emoji">✨</div>
+                <h3>Modern UI</h3>
+                <p>Transitions, animations, hover effects, pseudo elements, and gradients.</p>
+            </div>
+            <div class="mini-grid">
+                <div class="emoji">📱</div>
+                <h3>Responsive Design</h3>
+                <p>Mobile-first design, media queries, clamp, minmax, and flexible layouts.</p>
+            </div>
+        </div>
+    </div>
+    <div id="About" class="why-learn">
+        <div class="photo">
+            <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4">
+        </div>
+        <div class="content">
+            <h2>Why Learn CSS Deeply?</h2>
+            <p>CSS is not just colors. It controls layout, user experience, responsiveness, accessibility, and professional UI quality.</p>
+            <ul class="list">
+                <li>Build pixel-perfect responsive websites</li>
+                <li>Create reusable components using BEM</li>
+                <li>Improve UI with animations and transitions</li>
+                <li>Write clean, scalable CSS code</li>
+            </ul>
+        </div>
+    </div>
+    <div id="Projects" class="projects">
+        <h2>Practice Projects</h2>
+        <p>The best way to become strong is building real projects.</p>
+
+        <div class="photoss">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f" class="imgg">
+                <div class="card-content">
+                    <h3>Dashboard</h3>
+                    <p>Grid layout and cards</p>
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1557821552-17105176677c" class="imgg">
+                <div class="card-content">
+                    <h3>E-commerce</h3>
+                    <p>Product layout and responsive design</p>
+                </div>
+            </div>
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72" class="imgg">
+                <div class="card-content">
+                    <h3>Portfolio</h3>
+                    <p>Modern personal branding</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="Plans" class="learning-path">
+        <h2>Learning Path</h2>
+        <p>Choose your level and start practicing.</p>
+        <div class="levels">
+            <div class="each-level">
+                <p class="p1">Beginner</p>
+                <p class="p-specific">01</p>
+                <ul class="list2">
+                    <li>CSS Basics</li>
+                    <li>Box Model</li>
+                    <li>Typography</li>
+                </ul>
+                <button class="btn">Learn</button>
+            </div>
+            <div class="each-level intermediate">
+                <p class="p1">Intermediate</p>
+                <p class="p-specific">02</p>
+                <ul class="list2">
+                    <li>Flexbox</li>
+                    <li>Grid</li>
+                    <li>Responsive Design</li>
+                </ul>
+                <button class="btn">Learn</button>
+            </div>
+            <div class="each-level">
+                <p class="p1">Advanced</p>
+                <p class="p-specific">03</p>
+                <ul class="list2">
+                    <li>Animations</li>
+                    <li>Architecture</li>
+                    <li>Performance</li>
+                </ul>
+                <button class="btn">Learn</button>
+            </div>
+        </div>
+    </div>
+    <div id="Contact" class="contact">
+        <h2 style="color: white;">Contact Us</h2>
+        <p>Send us a message to join the CSS learning journey.</p>
+        <form>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <textarea placeholder="Your Message" rows="5"></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+    <footer>
+        © 2026 CSSPro. Built with HTML & CSS only.
+    </footer>
+    <a href="#" class="top" id="Top">↑</a>
+</body>
+
+</html>
